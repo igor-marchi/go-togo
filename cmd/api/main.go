@@ -1,14 +1,5 @@
 package main
 
-// @title           Todo API
-// @version         1.0
-// @description     Uma API simples de tarefas feita em Go com SQLite.
-
-// @contact.name   Igor Marchi
-
-// @host      localhost:8080
-// @BasePath  /todos
-
 import (
 	"fmt"
 	"log"
@@ -17,9 +8,6 @@ import (
 	"github.com/igor-marchi/to-do/internal/config"
 	"github.com/igor-marchi/to-do/internal/db"
 	"github.com/igor-marchi/to-do/internal/todo"
-
-	_ "github.com/igor-marchi/go-todo/docs" // importa os arquivos gerados
-	httpSwagger "github.com/swaggo/http-swagger"
 )
 
 func main() {
@@ -40,11 +28,6 @@ func main() {
 		default:
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		}
-	})
-
-	mux.HandleFunc("/swagger/", httpSwagger.WrapHandler)
-	mux.HandleFunc("/swagger/doc.json", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "./docs/swagger.json")
 	})
 
 	addr := fmt.Sprintf(":%s", cfg.Port)

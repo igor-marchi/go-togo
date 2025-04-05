@@ -1,9 +1,5 @@
 package todo
 
-import (
-	"sync"
-)
-
 type Service interface {
 	GetTodos() ([]Todo, error)
 	CreateTodo(input CreateTodoInput) (Todo, error)
@@ -12,9 +8,6 @@ type Service interface {
 type todoService struct {
 	todoRepository Repository
 }
-
-var instance *todoService
-var once sync.Once
 
 func NewTodoService(todoRepository Repository) Service {
 	return &todoService{todoRepository}
