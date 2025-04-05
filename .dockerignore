@@ -1,0 +1,4 @@
+.git
+todos.db
+*.log
+.env

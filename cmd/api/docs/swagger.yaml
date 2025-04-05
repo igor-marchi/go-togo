@@ -1,0 +1,10 @@
+basePath: /todos
+host: localhost:8080
+info:
+  contact:
+    name: Igor Marchi
+  description: Uma API simples de tarefas feita em Go com SQLite.
+  title: Todo API
+  version: "1.0"
+paths: {}
+swagger: "2.0"
